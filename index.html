@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App Store keyword snapshot: the searches an iOS app shows up in, with moves and opportunity</title>
+<meta name="description" content="Paste PeekPanda competitor ASO responses and see every US App Store search an iOS app is observed in: position, move since the previous run, Apple popularity, difficulty, opportunity, the top other app, searches shared with rivals, and what changed since your last snapshot. Runs in your browser.">
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; color: #1b1b1f; }
+  textarea { width: 100%; min-height: 160px; font: 13px ui-monospace, monospace; }
+  button, select, input { padding: .45rem .9rem; margin: .5rem .5rem .5rem 0; }
+  button { cursor: pointer; }
+  table { border-collapse: collapse; width: 100%; margin-top: .5rem; font-size: 14px; }
+  th, td { border-bottom: 1px solid #ddd; padding: .35rem .5rem; text-align: left; vertical-align: middle; }
+  td.n { text-align: right; } .up { color: #1a7f37; } .down { color: #cf222e; }
+  .muted { color: #777; } .err { color: #cf222e; white-space: pre-wrap; } .new { color: #1a7f37; font-weight: 600; }
+  .bar { display: inline-block; height: 8px; background: #2f81f7; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+  pre { background: #f6f8fa; padding: .75rem; overflow-x: auto; font-size: 13px; }
+  .box { background: #f6f8fa; padding: .5rem 1rem; border-radius: 6px; }
+  footer { margin-top: 2.5rem; font-size: 13px; color: #555; }
+</style>
+</head>
+<body>
+<h1>App Store keyword snapshot</h1>
+<p>See every US App Store search an iOS app is observed in: its position, the move since the previous collection run, popularity, difficulty, opportunity and the strongest other app in that result. Paste one competitor ASO response or a JSON array of them (one per app). With two or more apps the page also compares them and lists the searches they share. Nothing leaves your browser.</p>
+<textarea id="in" spellcheck="false" placeholder='[{"positionKind":"observed_search_api_position","storeId":"...","coverage":{...},"summary":{...},"keywords":[...]}, ...]'></textarea>
+<p class="muted">Optional: paste a report you saved earlier (CLI <code>--format json</code> or <code>--state</code> file) to see which searches are new, gone or moved since then.</p>
+<textarea id="prev" spellcheck="false" style="min-height:60px"></textarea>
+<div>
+  <button id="go">Show snapshot</button>
+  <button id="ex">Load example data</button>
+  <label>Rows per app <select id="top"><option>10</option><option selected>25</option><option>100</option></select></label>
+  <input id="filter" placeholder="Only searches containing…" size="24">
+  <button id="csv" disabled>Download CSV</button>
+</div>
+<div id="err" class="err"></div>
+<div id="out"></div>
+
+<h2>Where to get the JSON</h2>
+<p>The input is the competitor ASO response from <a href="https://peekpanda.com">PeekPanda</a>, an iOS competitor catalogue that keeps dated App Store evidence for each app. Call it once per app:</p>
+<pre>curl --get https://api.peekpanda.com/v1/competitors/ios/1234567890/aso \
+  -H "Authorization: Bearer $PEEKPANDA_TOKEN" \
+  -H 'x-genviral-tenancy: personal'</pre>
+<p>Over MCP this is the <code>get_app</code> tool with action <code>aso</code>. You need a PeekPanda account and an API key; the <a href="https://peekpanda.com/docs/get-competitor-aso">competitor ASO reference</a> lists every field, and <a href="https://peekpanda.com/docs/keyword-metrics-explained">keyword metrics explained</a> describes popularity, difficulty and opportunity.</p>
+
+<h2>How to read it</h2>
+<ul>
+  <li>Position is the app's place in the observed App Store Search API result for a US English search, not the native App Store rank and not search volume.</li>
+  <li>Move compares with the newest earlier collection run in the stored history. One run means no move yet.</li>
+  <li>Popularity is Apple's weekly score (1 to 100, tier 1 to 5) or, where Apple reports nothing, PeekPanda's estimate tier ("est. low"). Neither is a search count. A dash means unavailable, not zero.</li>
+  <li>Opportunity = popularity × (100 − difficulty) ÷ 100, only from Apple's numeric score. Difficulty and opportunity are directional.</li>
+  <li>An app with no observed searches is not proof that it ranks for nothing.</li>
+</ul>
+<p>Command-line version, tests and a weekly GitHub Actions example that posts keyword changes to Slack or Discord: <a href="https://github.com/fdarkaou/app-aso-keyword-snapshot">github.com/fdarkaou/app-aso-keyword-snapshot</a>.</p>
+<footer>MIT licensed sample. Example data is made up and is not real apps.</footer>
+
+<script type="module">
+import { toReport, diff, shared, climbers, fallers, openings, popularityText, moveText, compact, toCsv } from './aso.js';
+const $ = (id) => document.getElementById(id);
+let rep = null;
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const day = (s) => (s ? String(s).slice(0, 10) : '');
+const list = (ks, f) => ks.map((k) => `“${esc(k.query)}” ${f(k)}`).join(', ');
+
+function render() {
+  $('err').textContent = ''; $('out').innerHTML = '';
+  let raw, prev = null;
+  try { raw = JSON.parse($('in').value); } catch (e) { $('err').textContent = 'That is not valid JSON: ' + e.message; return; }
+  if ($('prev').value.trim()) { try { prev = JSON.parse($('prev').value); } catch (e) { $('err').textContent = 'The saved report is not valid JSON: ' + e.message; return; } }
+  try { rep = toReport(raw); } catch (e) { $('err').textContent = e.message; return; }
+  const d = diff(rep, prev), top = Number($('top').value), f = $('filter').value.trim().toLowerCase();
+  let html = d ? `<p class="muted">Compared with your saved report (${esc(d.since)}).</p>` : '';
+  if (rep.apps.length > 1) {
+    html += `<h2>Side by side</h2><table><thead><tr><th>App</th><th>Searches</th><th>Top 3</th><th>Top 10</th><th>Top 50</th><th>Best</th><th>Median</th><th>Observed</th></tr></thead><tbody>` +
+      rep.apps.map((a) => { const s = a.summary; return `<tr><td>${esc(a.name)}</td><td class="n">${a.coverage.queriesMatched ?? a.keywords.length}</td><td class="n">${s.top3 ?? ''}</td><td class="n">${s.top10 ?? ''}</td><td class="n">${s.top50 ?? ''}</td><td>${s.bestPosition ? `#${s.bestPosition.position} ${esc(s.bestPosition.query)}` : ''}</td><td class="n">${s.medianPosition ?? ''}</td><td>${esc(day(a.coverage.latestObservedAt))}</td></tr>`; }).join('') + '</tbody></table>';
+    const sh = shared(rep).filter((s) => !f || s.query.toLowerCase().includes(f));
+    if (sh.length) html += `<h3>Searches more than one app appears in</h3><table><thead><tr><th>Search</th><th>Popularity</th>${rep.apps.map((a) => `<th>${esc(a.name)}</th>`).join('')}</tr></thead><tbody>` +
+      sh.slice(0, top).map((s) => `<tr><td>${esc(s.query)}</td><td>${esc(popularityText(s.popularity))}</td>${rep.apps.map((a) => `<td class="n">${s.positions[a.storeId] != null ? '#' + s.positions[a.storeId] : ''}</td>`).join('')}</tr>`).join('') + '</tbody></table>';
+  }
+  for (const a of rep.apps) {
+    const c = a.coverage, s = a.summary;
+    html += `<h2>${esc(a.name)} <span class="muted">${esc(a.storeId)}</span></h2><p>${c.queriesMatched ?? a.keywords.length} searches observed (${esc((c.country ?? 'us').toUpperCase())}, ${esc(c.language ?? 'en_us')}), latest ${esc(day(c.latestObservedAt))}. Top 3: ${s.top3 ?? '?'}, top 10: ${s.top10 ?? '?'}, top 50: ${s.top50 ?? '?'}${s.medianPosition != null ? `, median #${s.medianPosition}` : ''}.</p>`;
+    const dd = d?.apps?.[a.storeId], notes = [];
+    if (dd?.firstRun) notes.push('First run for this app in your saved report.');
+    else if (dd) {
+      if (dd.added.length) notes.push(`<span class="new">New:</span> ${list(dd.added, (k) => `#${k.position ?? '?'}`)}`);
+      if (dd.dropped.length) notes.push(`Gone: ${list(dd.dropped, (k) => `(was #${k.position ?? '?'})`)}`);
+      if (dd.changed.length) notes.push(`Moved since last run: ${list(dd.changed.slice(0, 10), (k) => `#${k.from} → #${k.to}`)}`);
+    }
+    const up = climbers(a), down = fallers(a), op = openings(a);
+    if (up.length) notes.push(`<span class="up">Climbed:</span> ${list(up.slice(0, 5), (k) => `${moveText(k)} to #${k.position}`)}`);
+    if (down.length) notes.push(`<span class="down">Dropped:</span> ${list(down.slice(0, 5), (k) => `${moveText(k)} to #${k.position}`)}`);
+    if (op.length) notes.push(`Highest opportunity outside the top 10: ${list(op, (k) => `(${k.opportunity}, #${k.position ?? '?'})`)}`);
+    for (const i of a.insights) notes.push(`PeekPanda: ${esc(i.title)}${i.detail ? ` <span class="muted">(${esc(i.detail)})</span>` : ''}${i.keywords.length ? ': ' + i.keywords.map((q) => `“${esc(q)}”`).join(', ') : ''}`);
+    if (notes.length) html += `<div class="box">${notes.map((n) => `<p>${n}</p>`).join('')}</div>`;
+    const rows = a.keywords.filter((k) => !f || k.query.toLowerCase().includes(f));
+    if (!rows.length) { html += '<p class="muted">No observed searches to show. That is not proof the app ranks for nothing.</p>'; continue; }
+    html += `<table><thead><tr><th>Search</th><th>Position</th><th>Move</th><th>Popularity</th><th>Difficulty</th><th>Opportunity</th><th>Top other app</th><th>Results</th><th>Observed</th></tr></thead><tbody>` +
+      rows.slice(0, top).map((k) => { const m = moveText(k), r = k.topRival; return `<tr><td>${esc(k.query)}</td><td class="n">${k.position != null ? '#' + k.position : ''}</td>
+        <td class="${m.startsWith('▲') ? 'up' : m.startsWith('▼') ? 'down' : ''}">${esc(m)}</td><td>${esc(popularityText(k.popularity))}</td><td class="n">${k.difficulty ?? '—'}</td>
+        <td>${k.opportunity != null ? `<span class="bar" style="width:${k.opportunity}px"></span>${k.opportunity}` : '—'}</td>
+        <td>${r ? `#${r.position ?? '?'} ${esc(r.name)}${r.ratingCount != null ? ` <span class="muted">(${compact(r.ratingCount)} ratings)</span>` : ''}` : ''}</td><td class="n">${k.resultCount ?? ''}</td><td>${esc(day(k.observedAt))}</td></tr>`; }).join('') + '</tbody></table>';
+  }
+  $('out').innerHTML = html;
+  $('csv').disabled = false;
+}
+
+$('go').onclick = render;
+$('top').onchange = () => rep && render();
+$('filter').oninput = () => rep && render();
+$('ex').onclick = async () => {
+  $('in').value = await (await fetch('examples/aso.json')).text();
+  $('prev').value = await (await fetch('examples/previous.json')).text();
+  render();
+};
+$('csv').onclick = () => {
+  const url = URL.createObjectURL(new Blob([toCsv(rep)], { type: 'text/csv' }));
+  Object.assign(document.createElement('a'), { href: url, download: `aso-keyword-snapshot-${rep.apps.map((a) => day(a.coverage?.latestObservedAt)).sort().pop() || 'unknown'}.csv` }).click();
+  URL.revokeObjectURL(url);
+};
+</script>
+</body>
+</html>

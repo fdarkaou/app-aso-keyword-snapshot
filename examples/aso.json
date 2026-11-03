@@ -1,0 +1,619 @@
+[
+  {
+    "positionKind": "observed_search_api_position",
+    "storeId": "1000000301",
+    "coverage": {
+      "queriesMatched": 7,
+      "country": "us",
+      "language": "en_us",
+      "source": "itunes_search",
+      "latestObservedAt": "2026-11-01T00:00:00.000Z",
+      "observationCount": 12
+    },
+    "summary": {
+      "top3": 2,
+      "top10": 4,
+      "top50": 7,
+      "bestPosition": {
+        "query": "calorie tracker for teens",
+        "position": 1
+      },
+      "medianPosition": 6
+    },
+    "keywords": [
+      {
+        "query": "calorie tracker",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 4,
+        "resultCount": 200,
+        "apps": [
+          {
+            "storeId": "1000000901",
+            "position": 1,
+            "name": "Example Food Diary Pro",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.8,
+            "ratingCount": 912000
+          },
+          {
+            "storeId": "1000000904",
+            "position": 2,
+            "name": "Example Diet Coach",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.3,
+            "ratingCount": 150000
+          },
+          {
+            "storeId": "1000000301",
+            "position": 4,
+            "name": "Example Calorie Tracker",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.7,
+            "ratingCount": 12450
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 4
+          },
+          {
+            "observedAt": "2026-10-25T00:00:00.000Z",
+            "position": 7
+          }
+        ],
+        "demand": {
+          "score": 63,
+          "tier": 3,
+          "country": "us",
+          "periodStart": "2026-10-25",
+          "periodEnd": "2026-10-31",
+          "observedAt": "2026-11-01T00:00:00.000Z"
+        },
+        "popularityEstimate": null,
+        "difficulty": {
+          "score": 71
+        }
+      },
+      {
+        "query": "calorie counter",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 6,
+        "resultCount": 200,
+        "apps": [
+          {
+            "storeId": "1000000901",
+            "position": 1,
+            "name": "Example Food Diary Pro",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.8,
+            "ratingCount": 912000
+          },
+          {
+            "storeId": "1000000902",
+            "position": 3,
+            "name": "Example Fasting Timer",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.6,
+            "ratingCount": 210000
+          },
+          {
+            "storeId": "1000000301",
+            "position": 6,
+            "name": "Example Calorie Tracker",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.7,
+            "ratingCount": 12450
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 6
+          },
+          {
+            "observedAt": "2026-10-25T00:00:00.000Z",
+            "position": 5
+          }
+        ],
+        "demand": {
+          "score": 58,
+          "tier": 3,
+          "country": "us",
+          "periodStart": "2026-10-25",
+          "periodEnd": "2026-10-31",
+          "observedAt": "2026-11-01T00:00:00.000Z"
+        },
+        "popularityEstimate": null,
+        "difficulty": {
+          "score": 68
+        }
+      },
+      {
+        "query": "food diary",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 12,
+        "resultCount": 200,
+        "apps": [
+          {
+            "storeId": "1000000901",
+            "position": 1,
+            "name": "Example Food Diary Pro",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.8,
+            "ratingCount": 912000
+          },
+          {
+            "storeId": "1000000301",
+            "position": 12,
+            "name": "Example Calorie Tracker",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.7,
+            "ratingCount": 12450
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 12
+          },
+          {
+            "observedAt": "2026-10-25T00:00:00.000Z",
+            "position": 18
+          }
+        ],
+        "demand": {
+          "score": 41,
+          "tier": 3,
+          "country": "us",
+          "periodStart": "2026-10-25",
+          "periodEnd": "2026-10-31",
+          "observedAt": "2026-11-01T00:00:00.000Z"
+        },
+        "popularityEstimate": null,
+        "difficulty": {
+          "score": 52
+        }
+      },
+      {
+        "query": "macro tracker",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 23,
+        "resultCount": 180,
+        "apps": [
+          {
+            "storeId": "1000000902",
+            "position": 2,
+            "name": "Example Fasting Timer",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.6,
+            "ratingCount": 210000
+          },
+          {
+            "storeId": "1000000301",
+            "position": 23,
+            "name": "Example Calorie Tracker",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.7,
+            "ratingCount": 12450
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 23
+          },
+          {
+            "observedAt": "2026-10-25T00:00:00.000Z",
+            "position": 23
+          }
+        ],
+        "demand": {
+          "score": 37,
+          "tier": 2,
+          "country": "us",
+          "periodStart": "2026-10-25",
+          "periodEnd": "2026-10-31",
+          "observedAt": "2026-11-01T00:00:00.000Z"
+        },
+        "popularityEstimate": null,
+        "difficulty": {
+          "score": 44
+        }
+      },
+      {
+        "query": "meal log",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 17,
+        "resultCount": 140,
+        "apps": [
+          {
+            "storeId": "1000000903",
+            "position": 1,
+            "name": "Example Meal Snap",
+            "isSubject": false,
+            "inCatalogue": false,
+            "rating": 4.4,
+            "ratingCount": 48000
+          },
+          {
+            "storeId": "1000000301",
+            "position": 17,
+            "name": "Example Calorie Tracker",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.7,
+            "ratingCount": 12450
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 17
+          }
+        ],
+        "demand": {
+          "score": 22,
+          "tier": 2,
+          "country": "us",
+          "periodStart": "2026-10-25",
+          "periodEnd": "2026-10-31",
+          "observedAt": "2026-11-01T00:00:00.000Z"
+        },
+        "popularityEstimate": null,
+        "difficulty": {
+          "score": 30
+        }
+      },
+      {
+        "query": "weight loss food log",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 2,
+        "resultCount": 60,
+        "apps": [
+          {
+            "storeId": "1000000903",
+            "position": 1,
+            "name": "Example Meal Snap",
+            "isSubject": false,
+            "inCatalogue": false,
+            "rating": 4.4,
+            "ratingCount": 48000
+          },
+          {
+            "storeId": "1000000301",
+            "position": 2,
+            "name": "Example Calorie Tracker",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.7,
+            "ratingCount": 12450
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 2
+          },
+          {
+            "observedAt": "2026-10-25T00:00:00.000Z",
+            "position": 3
+          }
+        ],
+        "demand": null,
+        "popularityEstimate": {
+          "tier": "low",
+          "estimatedAt": "2026-10-31T00:00:00.000Z",
+          "modelTrainedAt": "2026-10-27T00:00:00.000Z"
+        },
+        "difficulty": {
+          "score": 18
+        }
+      },
+      {
+        "query": "calorie tracker for teens",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 1,
+        "resultCount": 12,
+        "apps": [
+          {
+            "storeId": "1000000301",
+            "position": 1,
+            "name": "Example Calorie Tracker",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.7,
+            "ratingCount": 12450
+          },
+          {
+            "storeId": "1000000903",
+            "position": 3,
+            "name": "Example Meal Snap",
+            "isSubject": false,
+            "inCatalogue": false,
+            "rating": 4.4,
+            "ratingCount": 48000
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 1
+          }
+        ],
+        "demand": null,
+        "popularityEstimate": null,
+        "difficulty": null
+      }
+    ],
+    "rivals": [],
+    "keywordIdeas": [],
+    "insights": [
+      {
+        "kind": "trend_pending",
+        "title": "One collection run so far",
+        "detail": "Position changes need at least two runs.",
+        "keywords": [
+          "meal log",
+          "calorie tracker for teens"
+        ],
+        "catalogueStoreId": null
+      }
+    ]
+  },
+  {
+    "positionKind": "observed_search_api_position",
+    "storeId": "1000000302",
+    "coverage": {
+      "queriesMatched": 4,
+      "country": "us",
+      "language": "en_us",
+      "source": "itunes_search",
+      "latestObservedAt": "2026-11-01T00:00:00.000Z",
+      "observationCount": 7
+    },
+    "summary": {
+      "top3": 1,
+      "top10": 2,
+      "top50": 4,
+      "bestPosition": {
+        "query": "macro tracker",
+        "position": 3
+      },
+      "medianPosition": 14
+    },
+    "keywords": [
+      {
+        "query": "macro tracker",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 3,
+        "resultCount": 180,
+        "apps": [
+          {
+            "storeId": "1000000902",
+            "position": 2,
+            "name": "Example Fasting Timer",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.6,
+            "ratingCount": 210000
+          },
+          {
+            "storeId": "1000000302",
+            "position": 3,
+            "name": "Example Macro Counter",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.5,
+            "ratingCount": 3820
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 3
+          },
+          {
+            "observedAt": "2026-10-25T00:00:00.000Z",
+            "position": 2
+          }
+        ],
+        "demand": {
+          "score": 37,
+          "tier": 2,
+          "country": "us",
+          "periodStart": "2026-10-25",
+          "periodEnd": "2026-10-31",
+          "observedAt": "2026-11-01T00:00:00.000Z"
+        },
+        "popularityEstimate": null,
+        "difficulty": {
+          "score": 44
+        }
+      },
+      {
+        "query": "calorie tracker",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 31,
+        "resultCount": 200,
+        "apps": [
+          {
+            "storeId": "1000000901",
+            "position": 1,
+            "name": "Example Food Diary Pro",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.8,
+            "ratingCount": 912000
+          },
+          {
+            "storeId": "1000000302",
+            "position": 31,
+            "name": "Example Macro Counter",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.5,
+            "ratingCount": 3820
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 31
+          },
+          {
+            "observedAt": "2026-10-25T00:00:00.000Z",
+            "position": 26
+          }
+        ],
+        "demand": {
+          "score": 63,
+          "tier": 3,
+          "country": "us",
+          "periodStart": "2026-10-25",
+          "periodEnd": "2026-10-31",
+          "observedAt": "2026-11-01T00:00:00.000Z"
+        },
+        "popularityEstimate": null,
+        "difficulty": {
+          "score": 71
+        }
+      },
+      {
+        "query": "protein counter",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 5,
+        "resultCount": 120,
+        "apps": [
+          {
+            "storeId": "1000000903",
+            "position": 1,
+            "name": "Example Meal Snap",
+            "isSubject": false,
+            "inCatalogue": false,
+            "rating": 4.4,
+            "ratingCount": 48000
+          },
+          {
+            "storeId": "1000000302",
+            "position": 5,
+            "name": "Example Macro Counter",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.5,
+            "ratingCount": 3820
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 5
+          },
+          {
+            "observedAt": "2026-10-25T00:00:00.000Z",
+            "position": 9
+          }
+        ],
+        "demand": {
+          "score": 29,
+          "tier": 2,
+          "country": "us",
+          "periodStart": "2026-10-25",
+          "periodEnd": "2026-10-31",
+          "observedAt": "2026-11-01T00:00:00.000Z"
+        },
+        "popularityEstimate": null,
+        "difficulty": {
+          "score": 35
+        }
+      },
+      {
+        "query": "keto macros",
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "observedAt": "2026-11-01T00:00:00.000Z",
+        "position": 14,
+        "resultCount": 150,
+        "apps": [
+          {
+            "storeId": "1000000904",
+            "position": 1,
+            "name": "Example Diet Coach",
+            "isSubject": false,
+            "inCatalogue": true,
+            "rating": 4.3,
+            "ratingCount": 150000
+          },
+          {
+            "storeId": "1000000302",
+            "position": 14,
+            "name": "Example Macro Counter",
+            "isSubject": true,
+            "inCatalogue": true,
+            "rating": 4.5,
+            "ratingCount": 3820
+          }
+        ],
+        "history": [
+          {
+            "observedAt": "2026-11-01T00:00:00.000Z",
+            "position": 14
+          }
+        ],
+        "demand": null,
+        "popularityEstimate": {
+          "tier": "medium",
+          "estimatedAt": "2026-10-31T00:00:00.000Z",
+          "modelTrainedAt": "2026-10-27T00:00:00.000Z"
+        },
+        "difficulty": {
+          "score": 39
+        }
+      }
+    ],
+    "rivals": [],
+    "keywordIdeas": [],
+    "insights": []
+  }
+]

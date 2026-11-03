@@ -1,0 +1,350 @@
+{
+  "kind": "peekpanda-aso-keyword-snapshot",
+  "fetchedAt": "2026-10-27T07:00:00.000Z",
+  "apps": [
+    {
+      "storeId": "1000000301",
+      "name": "Example Calorie Tracker",
+      "rating": 4.7,
+      "ratingCount": 12450,
+      "positionKind": "observed_search_api_position",
+      "coverage": {
+        "queriesMatched": 7,
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "latestObservedAt": "2026-11-01T00:00:00.000Z",
+        "observationCount": 12
+      },
+      "summary": {
+        "top3": 2,
+        "top10": 4,
+        "top50": 7,
+        "bestPosition": {
+          "query": "calorie tracker for teens",
+          "position": 1
+        },
+        "medianPosition": 7
+      },
+      "insights": [],
+      "rivalsCount": 0,
+      "keywordIdeasCount": 0,
+      "keywords": [
+        {
+          "query": "calorie tracker",
+          "position": 7,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 200,
+          "previousPosition": 7,
+          "previousObservedAt": "2026-10-25T00:00:00.000Z",
+          "move": 0,
+          "popularity": {
+            "kind": "apple",
+            "score": 63,
+            "tier": 3,
+            "periodStart": "2026-10-25",
+            "periodEnd": "2026-10-31"
+          },
+          "difficulty": 71,
+          "opportunity": 18,
+          "topRival": {
+            "storeId": "1000000901",
+            "name": "Example Food Diary Pro",
+            "position": 1,
+            "ratingCount": 912000,
+            "inCatalogue": true
+          },
+          "historyPoints": 2
+        },
+        {
+          "query": "calorie counter",
+          "position": 5,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 200,
+          "previousPosition": 5,
+          "previousObservedAt": "2026-10-25T00:00:00.000Z",
+          "move": 0,
+          "popularity": {
+            "kind": "apple",
+            "score": 58,
+            "tier": 3,
+            "periodStart": "2026-10-25",
+            "periodEnd": "2026-10-31"
+          },
+          "difficulty": 68,
+          "opportunity": 19,
+          "topRival": {
+            "storeId": "1000000901",
+            "name": "Example Food Diary Pro",
+            "position": 1,
+            "ratingCount": 912000,
+            "inCatalogue": true
+          },
+          "historyPoints": 2
+        },
+        {
+          "query": "diet app",
+          "position": 38,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 200,
+          "previousPosition": null,
+          "previousObservedAt": null,
+          "move": null,
+          "popularity": {
+            "kind": "apple",
+            "score": 51,
+            "tier": 3,
+            "periodStart": "2026-10-25",
+            "periodEnd": "2026-10-31"
+          },
+          "difficulty": 80,
+          "opportunity": 10,
+          "topRival": {
+            "storeId": "1000000904",
+            "name": "Example Diet Coach",
+            "position": 1,
+            "ratingCount": 150000,
+            "inCatalogue": true
+          },
+          "historyPoints": 1
+        },
+        {
+          "query": "food diary",
+          "position": 12,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 200,
+          "previousPosition": 18,
+          "previousObservedAt": "2026-10-25T00:00:00.000Z",
+          "move": 6,
+          "popularity": {
+            "kind": "apple",
+            "score": 41,
+            "tier": 3,
+            "periodStart": "2026-10-25",
+            "periodEnd": "2026-10-31"
+          },
+          "difficulty": 52,
+          "opportunity": 20,
+          "topRival": {
+            "storeId": "1000000901",
+            "name": "Example Food Diary Pro",
+            "position": 1,
+            "ratingCount": 912000,
+            "inCatalogue": true
+          },
+          "historyPoints": 2
+        },
+        {
+          "query": "macro tracker",
+          "position": 23,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 180,
+          "previousPosition": 23,
+          "previousObservedAt": "2026-10-25T00:00:00.000Z",
+          "move": 0,
+          "popularity": {
+            "kind": "apple",
+            "score": 37,
+            "tier": 2,
+            "periodStart": "2026-10-25",
+            "periodEnd": "2026-10-31"
+          },
+          "difficulty": 44,
+          "opportunity": 21,
+          "topRival": {
+            "storeId": "1000000902",
+            "name": "Example Fasting Timer",
+            "position": 2,
+            "ratingCount": 210000,
+            "inCatalogue": true
+          },
+          "historyPoints": 2
+        },
+        {
+          "query": "calorie tracker for teens",
+          "position": 1,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 12,
+          "previousPosition": null,
+          "previousObservedAt": null,
+          "move": null,
+          "popularity": {
+            "kind": null,
+            "score": null,
+            "tier": null
+          },
+          "difficulty": null,
+          "opportunity": null,
+          "topRival": {
+            "storeId": "1000000903",
+            "name": "Example Meal Snap",
+            "position": 3,
+            "ratingCount": 48000,
+            "inCatalogue": false
+          },
+          "historyPoints": 1
+        },
+        {
+          "query": "weight loss food log",
+          "position": 2,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 60,
+          "previousPosition": 3,
+          "previousObservedAt": "2026-10-25T00:00:00.000Z",
+          "move": 1,
+          "popularity": {
+            "kind": "estimate",
+            "score": null,
+            "tier": "low",
+            "estimatedAt": "2026-10-31T00:00:00.000Z",
+            "modelTrainedAt": "2026-10-27T00:00:00.000Z"
+          },
+          "difficulty": 18,
+          "opportunity": null,
+          "topRival": {
+            "storeId": "1000000903",
+            "name": "Example Meal Snap",
+            "position": 1,
+            "ratingCount": 48000,
+            "inCatalogue": false
+          },
+          "historyPoints": 2
+        }
+      ]
+    },
+    {
+      "storeId": "1000000302",
+      "name": "Example Macro Counter",
+      "rating": 4.5,
+      "ratingCount": 3820,
+      "positionKind": "observed_search_api_position",
+      "coverage": {
+        "queriesMatched": 4,
+        "country": "us",
+        "language": "en_us",
+        "source": "itunes_search",
+        "latestObservedAt": "2026-11-01T00:00:00.000Z",
+        "observationCount": 7
+      },
+      "summary": {
+        "top3": 1,
+        "top10": 2,
+        "top50": 4,
+        "bestPosition": {
+          "query": "macro tracker",
+          "position": 3
+        },
+        "medianPosition": 14
+      },
+      "insights": [],
+      "rivalsCount": 0,
+      "keywordIdeasCount": 0,
+      "keywords": [
+        {
+          "query": "calorie tracker",
+          "position": 31,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 200,
+          "previousPosition": 26,
+          "previousObservedAt": "2026-10-25T00:00:00.000Z",
+          "move": -5,
+          "popularity": {
+            "kind": "apple",
+            "score": 63,
+            "tier": 3,
+            "periodStart": "2026-10-25",
+            "periodEnd": "2026-10-31"
+          },
+          "difficulty": 71,
+          "opportunity": 18,
+          "topRival": {
+            "storeId": "1000000901",
+            "name": "Example Food Diary Pro",
+            "position": 1,
+            "ratingCount": 912000,
+            "inCatalogue": true
+          },
+          "historyPoints": 2
+        },
+        {
+          "query": "macro tracker",
+          "position": 3,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 180,
+          "previousPosition": 2,
+          "previousObservedAt": "2026-10-25T00:00:00.000Z",
+          "move": -1,
+          "popularity": {
+            "kind": "apple",
+            "score": 37,
+            "tier": 2,
+            "periodStart": "2026-10-25",
+            "periodEnd": "2026-10-31"
+          },
+          "difficulty": 44,
+          "opportunity": 21,
+          "topRival": {
+            "storeId": "1000000902",
+            "name": "Example Fasting Timer",
+            "position": 2,
+            "ratingCount": 210000,
+            "inCatalogue": true
+          },
+          "historyPoints": 2
+        },
+        {
+          "query": "protein counter",
+          "position": 9,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 120,
+          "previousPosition": 9,
+          "previousObservedAt": "2026-10-25T00:00:00.000Z",
+          "move": 0,
+          "popularity": {
+            "kind": "apple",
+            "score": 29,
+            "tier": 2,
+            "periodStart": "2026-10-25",
+            "periodEnd": "2026-10-31"
+          },
+          "difficulty": 35,
+          "opportunity": 19,
+          "topRival": {
+            "storeId": "1000000903",
+            "name": "Example Meal Snap",
+            "position": 1,
+            "ratingCount": 48000,
+            "inCatalogue": false
+          },
+          "historyPoints": 2
+        },
+        {
+          "query": "keto macros",
+          "position": 14,
+          "observedAt": "2026-11-01T00:00:00.000Z",
+          "resultCount": 150,
+          "previousPosition": null,
+          "previousObservedAt": null,
+          "move": null,
+          "popularity": {
+            "kind": "estimate",
+            "score": null,
+            "tier": "medium",
+            "estimatedAt": "2026-10-31T00:00:00.000Z",
+            "modelTrainedAt": "2026-10-27T00:00:00.000Z"
+          },
+          "difficulty": 39,
+          "opportunity": null,
+          "topRival": {
+            "storeId": "1000000904",
+            "name": "Example Diet Coach",
+            "position": 1,
+            "ratingCount": 150000,
+            "inCatalogue": true
+          },
+          "historyPoints": 1
+        }
+      ]
+    }
+  ]
+}

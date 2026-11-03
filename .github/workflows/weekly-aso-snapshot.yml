@@ -1,0 +1,41 @@
+# Example: every Monday, read the US App Store searches your app and two rivals are observed in, and post what changed to Slack or Discord.
+# Disabled until you set the repository variable ENABLE_ASO_SNAPSHOT=true.
+# Secrets: PEEKPANDA_TOKEN (PeekPanda API key), ASO_WEBHOOK_URL (Slack or Discord incoming webhook).
+name: weekly-aso-snapshot
+on:
+  schedule:
+    - cron: '30 7 * * 1'
+  workflow_dispatch:
+jobs:
+  snapshot:
+    if: vars.ENABLE_ASO_SNAPSHOT == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Keeps last week's report between runs so the post can show new, gone and moved searches.
+      - uses: actions/cache/restore@v4
+        with:
+          path: aso-state.json
+          key: aso-state-${{ github.run_id }}
+          restore-keys: aso-state-
+      - name: Keyword snapshot
+        env:
+          PEEKPANDA_TOKEN: ${{ secrets.PEEKPANDA_TOKEN }}
+          ASO_WEBHOOK_URL: ${{ secrets.ASO_WEBHOOK_URL }}
+        run: |
+          # One API call per app (3 here). Replace the ids with your app and your rivals.
+          node cli.js --app 0000000001,0000000002,0000000003 --state aso-state.json --archive history --webhook "$ASO_WEBHOOK_URL" >> "$GITHUB_STEP_SUMMARY"
+          node cli.js --file aso-state.json --format csv > aso-keywords.csv
+      - uses: actions/cache/save@v4
+        with:
+          path: aso-state.json
+          key: aso-state-${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aso-keyword-snapshot
+          path: |
+            aso-keywords.csv
+            history/
